@@ -9,9 +9,10 @@ docker build --force-rm=true -t "local:letsencrypt" /opt/server_provision/letsen
 echo "building nginx"
 docker build --force-rm=true -t "local:nginx" /opt/server_provision/nginx/
 
-echo "running letsencrypt"
-mkdir -p /opt/server_provision/letsencrypt/config
-docker run -d --name letsencrypt -p 80:80 -p 443:443 -v /opt/server_provision/letsencrypt/config:/opt/server_provision/letsencrypt/config local:letsencrypt
+#commented out for 7 days cooldown
+#echo "running letsencrypt"
+#mkdir -p /opt/server_provision/letsencrypt/config
+#docker run -d --name letsencrypt -p 80:80 -p 443:443 -v /opt/server_provision/letsencrypt/config:/opt/server_provision/letsencrypt/config local:letsencrypt
 
 
 echo "running nginx"
