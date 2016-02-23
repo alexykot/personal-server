@@ -9,3 +9,7 @@ COPY alexykot.me.conf /etc/nginx/alexykot.me.conf
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN apt-get update && apt-get autoclean && apt-get clean && apt-get autoremove
+
+EXPOSE 80 443
+
+CMD nginx
