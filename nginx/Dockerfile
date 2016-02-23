@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM local:debian-base
 
 #nginx
 RUN echo "deb http://nginx.org/packages/debian/ squeeze nginx\n\ndeb-src http://nginx.org/packages/debian/ squeeze nginx\n\n" > /etc/apt/sources.list.d/nginx.list
