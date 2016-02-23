@@ -11,16 +11,6 @@ RUN ln -s /etc/nginx/sites-available/alexykot.me.conf /etc/nginx/sites-enabled/a
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
-#TLS
-RUN apt-get install -y letsencrypt
-
-RUN mkdir /etc/nginx/tls
-COPY alexykot.me.crt  /etc/nginx/tls/alexykot.me.crt
-COPY alexykot.me.crt  /etc/nginx/tls/alexykot.me.crt
-COPY alexykot.me.crt  /etc/nginx/tls/alexykot.me.crt
-
-
-
 RUN apt-get update && apt-get autoclean && apt-get clean && apt-get autoremove
 
 EXPOSE 80 443
