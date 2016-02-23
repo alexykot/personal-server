@@ -5,14 +5,11 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYMKkvEMcENOkNCF1VsFe+aK3NiViEoJUt0k
 
 apt-get update
 apt-get upgrade
-apt-get install -y sudo mc git cpufrequtils sysfsutils apt-transport-https curl ntp
+apt-get install -y sudo ca-certificates mc git cpufrequtils sysfsutils apt-transport-https curl ntp
 git config --global core.editor "mcedit"
 
-echo "\n\n#sid unstable \n deb http://ftp.uk.debian.org/debian unstable main contrib " >> /etc/apt/sources.list
-echo "Package: *\nPin: release a=jessie\nPin-Priority: 700\n\nPackage: * \nPin: release a=unstable\nPin-Priority: 50\n\n" > /etc/apt/preferences
-
-apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-echo "deb https://apt.dockerproject.org/repo debian-jessie main" > /etc/apt/sources.list.d/docker.list
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" > /etc/apt/sources.list.d/docker.list
 apt-get update
 apt-get install -y docker-engine
 service docker start
